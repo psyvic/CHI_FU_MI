@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Sat Apr  1 09:19:16 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr  1 10:15:05 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr  1 11:28:11 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdio.h>
@@ -33,7 +33,7 @@ void		end(t_match *list)
   if (choice == 1)
     my_putstr("Start again");
   if (choice == 3)
-    {
     print_list(list);
-    }
+  if (choice == 2)
+    my_putstr("Game ends. Thanks for playing!\n\n");
 }

@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Mar 31 10:02:34 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr  1 11:19:12 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr  1 11:25:33 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdio.h>
@@ -66,18 +66,21 @@ void          chifumi(int game, int round)
   list = NULL;
   points_pc = points_pl = choice = i = 0;
   srand (time (NULL));
-  while ((points_pl < (round / 2 + 1)) && (points_pc < (round / 2 + 1)))
+  while (choice != 2)
     {
-      choice = make_choice(game);
-      pic_pc = (rand()% game) + 1;
-      choix(pic_pc, choice, &points_pl, &points_pc);
-      result(points_pl, points_pc);
-      match = malloc(sizeof(t_match));
-      fill_match(&match, choice, pic_pc, points_pl);
-      match->score_pc = points_pc;
-      match->round = i;
-      list = add_node(list, match);
-      i = i + 1;
+      while ((points_pl < (round / 2 + 1)) && (points_pc < (round / 2 + 1)))
+	{
+	  choice = make_choice(game);
+	  pic_pc = (rand()% game) + 1;
+	  choix(pic_pc, choice, &points_pl, &points_pc);
+	  result(points_pl, points_pc);
+	  match = malloc(sizeof(t_match));
+	  fill_match(&match, choice, pic_pc, points_pl);
+	  match->score_pc = points_pc;
+	  match->round = i;
+	  list = add_node(list, match);
+	  i = i + 1;
+	}
+      end(list);
     }
-  end(list);
 }
