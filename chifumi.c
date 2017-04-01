@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Mar 31 10:02:34 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr  1 11:11:31 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr  1 11:19:12 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdio.h>
@@ -74,9 +74,6 @@ void          chifumi(int game, int round)
       result(points_pl, points_pc);
       match = malloc(sizeof(t_match));
       fill_match(&match, choice, pic_pc, points_pl);
-	/*match->pic_pl = choice;
-      match->pic_pc = pic_pc;
-      match->score_pl = points_pl;*/
       match->score_pc = points_pc;
       match->round = i;
       list = add_node(list, match);
