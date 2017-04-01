@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Mar 31 10:02:34 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr  1 05:51:09 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr  1 07:25:21 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdio.h>
@@ -29,6 +29,7 @@ void          choix_paper(int pic_pc, int pic_pl, int *points_pl, int *points_pc
 void          choix_scissors(int pic_pc, int pic_pl, int *points_pl, int *points_pc);
 void          choix_lizard(int pic_pc, int pic_pl, int *points_pl, int *points_pc);
 void          choix_spock(int pic_pc, int pic_pl, int *points_pl, int *points_pc);
+int           make_choice(int game);
 int           make_choice_3();
 int           make_choice_5();
 void          result(int points_pl, int points_pc);
@@ -61,15 +62,18 @@ void          chifumi(int game, int round)
   t_match     *list;
   t_match     *match;
 
+  char  pic_pl[50];
+
+
+
+
+  
   list = NULL;
   points_pc = points_pl = choice = i = 0;
   srand (time (NULL));
   while ((points_pl < (round / 2 + 1)) && (points_pc < (round / 2 + 1)))
     {
-      if (game == 3)
-	choice = make_choice_3();
-      if (game == 5)
-	choice = make_choice_5();
+      choice = make_choice(game);
       pic_pc = (rand()% game) + 1;
       choix_rock(pic_pc, choice, &points_pl, &points_pc);
       choix_paper(pic_pc, choice, &points_pl, &points_pc);
@@ -83,7 +87,14 @@ void          chifumi(int game, int round)
       match->score_pl = points_pl;
       match->score_pc = points_pc;
       match->round = i;
-      add_node(list, match);
+      list = add_node(list, match);
       i = i + 1;
     }
+  my_putstr("And now 1.Start again, 2.History, 3.quit");
+  my_strcpy(pic_pl, readLine());
+  choice = my_getnbr(pic_pl);
+  if (choice == 1)
+    my_putstr("Start again");
+  if (choice == 2)
+    print_list(list);
 }
