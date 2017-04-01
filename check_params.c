@@ -5,19 +5,19 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Mar 31 17:39:15 2017 AIZPURUA Victor Hugo
-** Last update Fri Mar 31 23:54:51 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr  1 10:32:04 2017 AIZPURUA Victor Hugo
 */
 
 #include "my_fonctions.h"
 
-void helper();
-int chifumi(int game, int round);
+void	helper();
+int	chifumi(int game, int round);
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-  int game;
-  int round;
-  int i;
+  int	game;
+  int	round;
+  int	i;
 
   game = round = 0;
   i = 1;
