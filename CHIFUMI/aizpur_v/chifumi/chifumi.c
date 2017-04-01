@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Mar 31 10:02:34 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr  1 10:02:40 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr  1 11:11:31 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdio.h>
@@ -28,6 +28,7 @@ void          choix_paper(int pic_pc, int pic_pl, int *points_pl, int *points_pc
 void          choix_scissors(int pic_pc, int pic_pl, int *points_pl, int *points_pc);
 void          choix_lizard(int pic_pc, int pic_pl, int *points_pl, int *points_pc);
 void          choix_spock(int pic_pc, int pic_pl, int *points_pl, int *points_pc);
+void	      fill_match(t_match **match, int choice, int pic_pc, int points_pl);
 void	      end();
 int           make_choice(int game);
 int           make_choice_3();
@@ -72,9 +73,10 @@ void          chifumi(int game, int round)
       choix(pic_pc, choice, &points_pl, &points_pc);
       result(points_pl, points_pc);
       match = malloc(sizeof(t_match));
-      match->pic_pl = choice;
+      fill_match(&match, choice, pic_pc, points_pl);
+	/*match->pic_pl = choice;
       match->pic_pc = pic_pc;
-      match->score_pl = points_pl;
+      match->score_pl = points_pl;*/
       match->score_pc = points_pc;
       match->round = i;
       list = add_node(list, match);
