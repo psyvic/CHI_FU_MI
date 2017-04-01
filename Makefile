@@ -5,7 +5,7 @@
 ## Login   <aizpur_v@etna-alternance.net>
 ## 
 ## Started on  Sat Apr  1 07:46:15 2017 AIZPURUA Victor Hugo
-## Last update Sat Apr  1 10:26:14 2017 AIZPURUA Victor Hugo
+## Last update Sat Apr  1 10:28:36 2017 AIZPURUA Victor Hugo
 ##
 
 CC =		gcc
@@ -20,7 +20,7 @@ SRC =		chifumi.c \
 		print_list.c \
 		end.c 
 
-OBJ =		$(SRC%.c=%.o)
+OBJ =		$(SRC:%.c=%.o)
 CFLAGS =	-W -Wall -ansi -ansi -pedantic -L. -I.
 LDFLAGS =
 RM =		rm -f
