@@ -5,21 +5,20 @@
 ## Login   <aizpur_v@etna-alternance.net>
 ## 
 ## Started on  Sat Apr  1 07:46:15 2017 AIZPURUA Victor Hugo
-## Last update Sat Apr  1 08:22:24 2017 AIZPURUA Victor Hugo
+## Last update Sat Apr  1 10:26:14 2017 AIZPURUA Victor Hugo
 ##
 
 CC =		gcc
 NAME =		chifumi
-SRC =		my_putchar.c   \
-		my_put_nbr.c   \
-		my_getnbr.c    \
-		my_putstr.c    \
-		my_nb_len.c    \
-		my_strlen.c    \
-		my_strcpy.c    \
-		my_strncpy.c   \
-		my_strcmp.c    \
-		my_strncat.c   
+SRC =		chifumi.c \
+		helper.c  \
+		check_params.c \
+		choix.c  \
+		choix_2.c \
+		make_choice.c \
+		result.c \
+		print_list.c \
+		end.c 
 
 OBJ =		$(SRC%.c=%.o)
 CFLAGS =	-W -Wall -ansi -ansi -pedantic -L. -I.
@@ -37,4 +36,5 @@ clean:
 fclean:		clean
 		$(RM) $(NAME)
 re:		fclean all
+
 .PHONY:		all clean fclear re
