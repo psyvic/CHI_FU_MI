@@ -5,7 +5,7 @@
 ** Login   <aizpur_v@etna-alternance.net>
 ** 
 ** Started on  Fri Mar 31 10:02:34 2017 AIZPURUA Victor Hugo
-** Last update Sat Apr  1 07:25:21 2017 AIZPURUA Victor Hugo
+** Last update Sat Apr  1 10:02:40 2017 AIZPURUA Victor Hugo
 */
 
 #include <stdio.h>
@@ -15,8 +15,6 @@
 #include <unistd.h>
 #include <time.h>
 #include "my_struct.h"
-//#include "my_fonctions.h"
-
 
 void          my_putchar(char c);
 void          my_putstr(char *str);
@@ -24,11 +22,13 @@ char          *my_strcpy(char *dest, char *src);
 int           my_nb_len(int n);
 void          my_put_nbr(int n);
 int           my_getnbr(char *str);
+void          choix(int pic_pc, int pic_pl, int *points_pl, int *points_pc);
 void          choix_rock(int pic_pc, int pic_pl, int *points_pl, int *points_pc);
 void          choix_paper(int pic_pc, int pic_pl, int *points_pl, int *points_pc);
 void          choix_scissors(int pic_pc, int pic_pl, int *points_pl, int *points_pc);
 void          choix_lizard(int pic_pc, int pic_pl, int *points_pl, int *points_pc);
 void          choix_spock(int pic_pc, int pic_pl, int *points_pl, int *points_pc);
+void	      end();
 int           make_choice(int game);
 int           make_choice_3();
 int           make_choice_5();
@@ -62,12 +62,6 @@ void          chifumi(int game, int round)
   t_match     *list;
   t_match     *match;
 
-  char  pic_pl[50];
-
-
-
-
-  
   list = NULL;
   points_pc = points_pl = choice = i = 0;
   srand (time (NULL));
@@ -75,11 +69,7 @@ void          chifumi(int game, int round)
     {
       choice = make_choice(game);
       pic_pc = (rand()% game) + 1;
-      choix_rock(pic_pc, choice, &points_pl, &points_pc);
-      choix_paper(pic_pc, choice, &points_pl, &points_pc);
-      choix_scissors(pic_pc, choice, &points_pl, &points_pc);
-      choix_lizard(pic_pc, choice, &points_pl, &points_pc);
-      choix_spock(pic_pc, choice, &points_pl, &points_pc);
+      choix(pic_pc, choice, &points_pl, &points_pc);
       result(points_pl, points_pc);
       match = malloc(sizeof(t_match));
       match->pic_pl = choice;
@@ -90,11 +80,5 @@ void          chifumi(int game, int round)
       list = add_node(list, match);
       i = i + 1;
     }
-  my_putstr("And now 1.Start again, 2.History, 3.quit");
-  my_strcpy(pic_pl, readLine());
-  choice = my_getnbr(pic_pl);
-  if (choice == 1)
-    my_putstr("Start again");
-  if (choice == 2)
-    print_list(list);
+  end(list);
 }
